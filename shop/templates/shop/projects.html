@@ -1,0 +1,38 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+{% load static %}
+<main class="main">
+    <section class="menu section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="search">
+                <form class="search-form" action="{% url 'projects' %}" method="get">
+                    <input type="text" class="search-field" name="search_query" value="{{search_query}}" placeholder="Search...">
+                    <button type="submit" class="search-button" value="Search">ПОИСК</button>
+                </form>
+                    </div>
+                <div class="col-12">
+                    <h2 class="mb-lg-5 mb-4">Наш ассортимент</h2>
+                    </div>
+                    <div class="product-container">
+                        {% for project in projects %}
+                        {% if project.is_active %}
+                        <div class="product-card">
+                            <a href="{% url 'single-card' project.id %}" class="item">
+                                <img src="{{ project.featured_image.url }}" alt="Product Image">
+                                <p class="ident">id:{{project.id}}</p>
+                                <h5>{{project.title}}</h5>
+                            </a>
+                            {% endif %}
+                        </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        </div>
+        {% include 'shop/pagination.html' with queryset=projects custom_range=custom_range %}
+    </section>
+
+
+</main>
+{% endblock %}

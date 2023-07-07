@@ -1,0 +1,43 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <link rel="icon" href="{% static 'images/icon.png' %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Permit Yourself</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="{% static 'styles/css/style.css'%}" rel="stylesheet">
+        <link href="{% static 'styles/css/bootstrap.min.css'%}" rel="stylesheet">
+
+        <link href="{% static 'styles/css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'styles/css/tooplate-crispy-kitchen.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body>
+    {% include 'shop/navbar.html' %}
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'shop/footer.html' %}
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="{% static 'styles/js/jquery.min.js' %}"></script>
+    <script src="{% static 'styles/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'styles/js/custom.js' %}"></script>
+    <script src="{% static 'styles/js/script.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<main class="menu">
+    <section>
+        <h3>{{ card.title }}</h3>
+      <img class="img_single" src="{{ card.featured_image.url }}"  alt="Product Image">
+      <h3>Описание</h3>
+      <p>{{ card.description }}</p>
+    </section>
+    <section>
+        <h3>Продаём на OZON ===>><a href="{{card.shop_o}}" target="_blank" >Ссылка</a> </h3>
+        {% if request.user.is_superuser %}
+        <td class="settings__tableActions">
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-project' card.id %}"><i
+                        class="im im-edit"></i> Edit</a>
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-project' card.id %}"><i
+                        class="im im-x-mark-circle-o"></i>
+                  Delete</a>
+              </td>
+        {% endif %}
+    </section>
+
+</main>
+
+{% endblock %}
